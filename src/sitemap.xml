@@ -1,0 +1,163 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"> 
+<url>
+ <loc>https://estatevilleeg.com/#/home</loc>
+</url>
+</urlset>
+ -->
+
+
+    <!-- <?xml version=”1.0” encoding=”UTF-8”>
+<urlset xmlns=”http://www.sitemaps.org/schemas/sitemap/0.9” xmlns:xhtml=”http:www.w3.org/1999/xhtml”>
+   <url>
+      <loc>https://www.estatevilleeg.com/home</loc>
+      <lastmod>2022-07-02</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+      <xhtml:link rel=”alternate” hreflang=”en” href=”https://www.estatevilleeg.com/home/en”/>
+      <xhtml:link rel=”alternate” hreflang=”ar” href=”https://www.estatevilleeg.com/home/ar”/>
+   </url>
+
+
+
+<sitemap>
+<loc>https://estatevilleeg.com/sitemap_index.xml</loc>
+ </sitemap>
+ <sitemap>
+<loc>https://estatevilleeg.com/sitemap.xml.gz</loc>
+ </sitemap> -->
+ <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd">
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_1.xml.gz</loc>
+
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_2.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_3.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_4.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_5.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_6.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_7.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_8.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_9.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_10.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_11.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_12.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_13.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_14.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_15.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_16.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_17.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_18.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_19.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_20.xml.gz</loc>
+<lastmod>2022-08-01</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_21.xml.gz</loc>
+<lastmod>2022-08-01</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_22.xml.gz</loc>
+<lastmod>2022-08-01</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_23.xml.gz</loc>
+<lastmod>2022-08-01</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_24.xml.gz</loc>
+<lastmod>2022-08-01</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_26.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_27.xml.gz</loc>
+<lastmod>2022-08-02</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_28.xml.gz</loc>
+<lastmod>2022-07-23</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_29.xml.gz</loc>
+<lastmod>2022-07-13</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_30.xml.gz</loc>
+<lastmod>2022-07-04</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_31.xml.gz</loc>
+<lastmod>2022-06-21</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_32.xml.gz</loc>
+<lastmod>2022-06-04</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_33.xml.gz</loc>
+<lastmod>2022-05-18</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://www.estatevilleeg.com/sitemap_34.xml.gz</loc>
+<lastmod>2022-02-28</lastmod>
+</sitemap>
+</sitemapindex>

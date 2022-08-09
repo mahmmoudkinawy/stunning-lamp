@@ -1,0 +1,302 @@
+<div id="projectDetails" class="py-5">
+  <div class="container m-auto project-details-desc">
+    <div class="row">
+      <!-------------------------- desc and slider------------------------------->
+      <div class="col-md-8" dir="auto">
+        <div *ngIf="property" class="row pt-3 projec-detils-about">
+          <!-------------------------- name and description of project------------------------------->
+          <div class="col-md-6 details-text-desc conveythis-no-translate" dir="auto">
+            <h5 class="py-2 ref-number">{{property.reference}}</h5>
+            <h3 *ngIf="!arabicMode">{{ property.title }}</h3>
+            <h3 *ngIf="arabicMode">{{ property.arabicTitle }}</h3>
+            <p class="py-1" *ngIf="!arabicMode">
+              {{ property.description }}
+            </p>
+            <p class="py-1" *ngIf="arabicMode">
+              {{ property.arabicDescription }}
+            </p>
+          </div>
+          <!-------------------------- icons of project------------------------------->
+          <div class="col-md-5 offset-1 d-block  p-3 icons-offset-project" style="padding-left: 0">
+            <!-- <div class="row" *ngIf="property.pricesList.length">
+              <p class="price mb-1 px-0 mx-auto text-center" *ngFor="let price of property.pricesList">
+                {{ price.amount | currency:'EGP':'':'3.0' }} {{price.pricetype}}
+              </p>
+            </div> -->
+            <div class="row" *ngIf="property.categoryType == 2">
+              <p class="price mb-1 px-0 mx-auto text-center" *ngIf="property.amount || property.pricetype">
+                {{ property.amount | currency:'EGP':'':'3.0' }} {{property.pricetype}}
+              </p>
+            </div>
+            <div class="row" *ngIf="property.categoryType == 1">
+              <p class="price mb-1 px-0 mx-auto text-center" *ngIf="property.amount || property.pricetype || property.amount_1 || 
+              property.pricetype_1 || property.amount_2 || property.pricetype_2">
+                {{ property.amount | currency:'EGP':'':'3.0' }} {{property.pricetype}}
+                <br>
+                {{ property.amount_1 | currency:'EGP':'':'3.0' }} {{property.pricetype_1}}
+                <br>
+                {{ property.amount_2 | currency:'EGP':'':'3.0' }} {{property.pricetype_2}}
+              </p>
+            </div>
+            <div class="row mb-3 ml-5 des-img-details pt-1" dir="auto">
+              <!-- Area -->
+              <div class="col-4 p-0" *ngIf="property.area">
+                <div class="row gx-1">
+                  <div class="col-6 px-0">
+                    <div class="projec-detils-img m-auto">
+                      <img src="../../../assets/images/ProjectsDetails/SizeIcon.svg" alt="Properties image"
+                        class="w-100" />
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <span class="propTxt">{{property.area}}</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Parking -->
+              <div class="col-4 p-0" *ngIf="property.parking">
+                <div class="row gx-0">
+                  <div class="col-6 px-0">
+                    <div class="parking  m-auto">
+                      <img src="/assets/images/ProjectsDetails/parking.svg" alt="Properties image" class="w-100" />
+                    </div>
+                  </div>
+                  <div class="col-6 p-0">
+                    <p class="propTxt">{{property.parking}}</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Furnished -->
+              <div class="col-4 p-0" *ngIf="property.furnished">
+                <div class="row gx-0">
+                  <div class="col-6">
+                    <div class=" parking  m-auto">
+                      <img src="/assets/images/ProjectsDetails/furnitures.svg" alt="Properties image"
+                        class="w-100 h-100" />
+                    </div>
+                  </div>
+                  <div class="col-6 p-0 details-text">
+                    <p class="propTxt">{{furnisheMapping[property.furnished]}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-------------------------- number of rooms and icons project------------------------------->
+            <div class="row mb-3 ml-5 des-img-details pt-1" dir="auto">
+              <!-- Bedrooms -->
+              <div class="col-4 p-0" *ngIf="property.bedrooms">
+                <div class="row gx-1">
+                  <div class="col-6">
+                    <div class="parking  m-auto">
+                      <img src="/assets/images/ProjectsDetails/BedroomIcon.svg" alt="Properties image"
+                        class="w-100 h-100" />
+                    </div>
+                  </div>
+                  <div class="col-6 p-0 details-text">
+                    <p class="propTxt">{{property.bedrooms}}</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Bathrooms -->
+              <div class="col-4 p-0" *ngIf="property.bathrooms">
+                <div class="row gx-0">
+                  <div class="col-6">
+                    <div class="parking  m-auto">
+                      <img src="/assets/images/ProjectsDetails/BathroomIcon.svg" alt="Properties image"
+                        class="w-100 h-100" />
+                    </div>
+                  </div>
+                  <div class="col-6 p-0">
+                    <p class="propTxt">{{property.bathrooms}}</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Type -->
+              <div class="col-4 p-0" *ngIf="property.type">
+                <div class="row gx-0">
+                  <div class="col-6">
+                    <div class="parking  m-auto">
+                      <img src="/assets/images/ProjectsDetails/TypeIcon.svg" alt="Properties image"
+                        class="w-100 h-100" />
+                    </div>
+                  </div>
+                  <div class="col-6 p-0 details-text conveythis-no-translate">
+                    <p class="propTxt" *ngIf="!arabicMode">{{property.type.name}}</p>
+                    <p class="propTxt" *ngIf="arabicMode">{{property.type.arabicName}}</p>
+                  </div>
+
+                  <!-- <share-buttons class="mt-5"
+                  [theme]="'circles-dark'" [include]="['linkedin','twitter','whatsapp','facebook']" 
+                  [size]="-4" [url]="postUrl" [image]="getImageName(property.coverImage)" >
+              </share-buttons> -->
+              <share-buttons class="mt-5"
+                  [theme]="'circles-dark'" [include]="['linkedin','twitter','whatsapp','facebook']" 
+                  [size]="-4" [url]="postUrl" [image]="imgUrl" >
+              </share-buttons>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Amenities -->
+          <ng-container *ngIf="property.amenities.length">
+            <h6 class="amenities"><i class="fa fa-bed"></i> &nbsp; Amenities: </h6>
+            <ul class="row row-cols-md-5 conveythis-no-translate">
+              <ng-container *ngIf="!arabicMode">
+                <li class="col list-style-color" *ngFor="let amenity of property.amenities">
+                  {{amenity.name}}</li>
+              </ng-container>
+              <ng-container *ngIf="arabicMode">
+                <li class="col list-style-color" *ngFor="let amenity of property.amenities">
+                  {{amenity.arabicName}}</li>
+              </ng-container>
+            </ul>
+          </ng-container>
+            
+
+        </div>
+
+
+
+        <ngx-slick-carousel class="carousel mb-2 mx-auto " #slickModal="slick-carousel" [config]="slideConfig"
+          style="height: 50vh;" *ngIf="images">
+          <div ngxSlickItem *ngFor="let slide of images" class="slide image-ads" >
+            <img [src]="getImageName(slide)" alt="Properties image" width="100%" class="w-100 h-100"
+              style="object-fit: cover;">
+          </div>
+        </ngx-slick-carousel>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <!-------------------------- card and related project------------------------------->
+
+      <div class="col-md-4" *ngIf="property">
+        <!-------------------------- user card------------------------------->
+        <div class="row user-card">
+          <div class="user m-auto text-center mt-3">
+            <img *ngIf="property.user.picture" width="100%" [src]="getImageName(property.user.picture)"
+              class="user-card-image" style="margin: auto" alt="agent image" />
+            <img *ngIf="!property.user.picture" src="/assets/images/avatar-icon.png" class="user-card-image"
+              style="margin: auto" alt="agent image" />
+            <p class="mb-0 user-name">{{property.user.firstName}} {{property.user.lastName}}</p>
+            <a class="text-decoration-none" href="tel:{{property.user.fullNumber}}" rel="noopener noreferrer">
+              <p class="mb-0 use-number">{{property.user.fullNumber}}</p>
+            </a>
+
+          </div>
+          <div class="sentForm" dir="auto">
+            <form [formGroup]="contactForm">
+              <input type="text" formControlName="name" class="form-control userform my-2 bg-color input-color"
+                placeholder="Name........ " aria-label="" />
+              <input type="text" formControlName="email" class="form-control userform my-2 bg-color input-color"
+                placeholder="Email........ " aria-label="" />
+              <input type="text" formControlName="phone" class="form-control userform my-2 bg-color input-color"
+                placeholder="Phone........ " aria-label="" />
+              <input hidden [(ngModel)]="property.user.id" formControlName="agentId" />
+              <input hidden [(ngModel)]="property.id" formControlName="propertyId" />
+            </form>
+          </div>
+          <div class="row pb-3 m-auto">
+            <div class="col-6 px-0">
+              <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn w-100 btn-request"
+                [disabled]="!contactForm.valid" (click)="callAgent()">
+                Request to Buy or Rent
+              </button>
+            </div>
+            <div class="col-3 px-1">
+              <button class="btn w-100 btn-whats" (click)="callAgent()" [disabled]="!contactForm.valid">
+                <a href="https://wa.me/{{property.user.whatsPhone}}" rel="noopener noreferrer" accesskey=”s”>
+                  <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                </a>
+              </button>
+            </div>
+            <div class="col-3 px-1">
+              <button class="btn w-100 btn-call" (click)="callAgent()" [disabled]="!contactForm.valid">
+                <a href="tel:{{property.user.fullNumber}}" rel="noopener noreferrer" accesskey="x">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-------------------------- related project------------------------------->
+        <div class="row mt-3 related-project py-3" *ngIf="property.location || property.area">
+          <h6 class="color-text">{{property.area}}</h6>
+          <iframe [src]="mapUrl" class="border-iframe" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="row">
+        <h2 class="text-center my-5">Related Properties</h2>
+
+        <div class="
+            row row-cols-1 row-cols-sm-1 row-cols-md-4 row-cols-lg-3
+            m-auto
+          " *ngIf="relatedProperties">
+          <div class="col my-2" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1100"
+            *ngFor="let prop of relatedProperties">
+            <div class="card">
+              <h5 class="card-title" *ngIf="!arabicMode">{{ prop.title | slice: 0:60 }}</h5>
+              <h5 class="card-title" *ngIf="arabicMode">{{ prop.arabicTitle | slice: 0:60 }}</h5>
+
+              <img [src]="getImageName(prop.coverImage)" class="card-img-box card-radius image-related-height" alt="Properties image" />
+              <div class="card-body">
+                <a data-bs-toggle="modal" class="btn btn-primary" 
+                  rel="noopener noreferrer" accesskey=”q” [routerLink]="['/latest-projects/project-details', prop.id]">Open</a>
+                <p class="card-text text-center">
+                  {{ prop.description | slice: 0:80 }}
+                </p>
+                <p class="card-ref text-center mb-5 btn-color">{{prop.reference}}</p>
+
+              </div>
+            </div>
+            <!-- popup model -->
+            <!-- <ng-template class="modal fade" #template id="exampleModal" tabindex="-1"
+              aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-footer">
+                    <button  type="button"
+                      class="btn btn-outline-danger btn-text-undeline" (click)="seeMore()">
+                      Property Details
+                    </button>
+                  </div>
+                  <div class="modal-header">
+                    <button type="button" class="btn-close" (click)="closeSubDialog()" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <ngb-carousel #carousel [interval]="2000 " *ngIf="property.images">
+                      <ng-template ngbSlide *ngFor="let img of property.images">
+                        <div class="picsum-img-wrapper">
+                          <div class="img-block">
+                            <img [src]="getImageName(img)" alt="Properties image" class="d-block w-100 h-100" />
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-carousel>
+                  </div>
+                </div>
+              </div>
+            </ng-template> -->
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

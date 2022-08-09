@@ -1,0 +1,34 @@
+<section class=" OurPartners-section pt-5" *ngIf="allPartners">
+    <div class="container-fluid">
+        <h2 class="text-center my-5">Our Partners</h2>
+        <div class="row  text-center OurPartners w-75 m-auto justify-content-center
+        align-items-center">
+            <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfigPartners">
+                <div ngxSlickItem class="slide" *ngFor="let partner of allPartners">
+                    <img [src]="getImgPath(partner.image)" class="m-auto" alt="Partners image" loading="lazy">
+                </div>
+            </ngx-slick-carousel>     -->
+
+            <owl-carousel-o [options]="customOptions">
+
+                <ng-container *ngFor="let partner of allPartners" class="justify-content-center
+                align-items-center">
+                  <ng-template class="slide" carouselSlide >
+                    <img [src]="getImgPath(partner.image)" class="m-auto" alt="Partners image" loading="lazy">
+                  </ng-template>
+                </ng-container>
+            
+              </owl-carousel-o>  
+
+        </div>
+    </div>
+    <div  class="float-left">
+        <img src="/./assets/images/LatestProjects/Projects-IconLeft.webp" alt="EstateVille" class="background-logo">
+    </div>
+    <div class="dir-rtl">
+        <img src="/./assets/images/LatestProjects/Projects-IconRight.webp" alt="EstateVille" class="background-logo">
+    </div>
+    <div class="text-center logo-center pb-4">
+        <img src="/./assets/images/Logo/EstateVilleLogoWhite.webp" alt="EstateVille" class="page-speed-logo-white">
+    </div>
+</section>

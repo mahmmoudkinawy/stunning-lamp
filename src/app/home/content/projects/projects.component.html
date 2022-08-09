@@ -1,0 +1,21 @@
+<section class="projectsHome" *ngIf="categoriesList" dir="ltr">
+    <div class="container-fluid ">
+        <div class="row ">
+            <p class="text-center  my-5 headOfSerction">Categories</p>
+        </div>
+        <div class="projectsHome-images">
+            <div class="flex-container">
+                <div class="item" *ngFor="let category of categoriesList">
+                    <div class="row projectsHome-text">
+                        <div class="text">
+                            <p class="headOfCategory">{{category.name}}</p>
+                        </div>
+                    </div>
+                    <img [src]="getFilePath(category.image)" alt="category image" class="w-100"
+                        (click)="getPropByCategoryId(category.id)">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

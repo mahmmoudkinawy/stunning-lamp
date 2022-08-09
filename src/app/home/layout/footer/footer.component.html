@@ -1,0 +1,72 @@
+<footer class="footer">
+    <div class="container pt-5 pb-2">
+        <div class="row  row-cols-1 row-cols-sm-1 row-cols-md-5 text-center">
+            <div class="col">
+                <ul>
+                    <li>
+                        <a accesskey=”u” aria-current="page" (click)="buttonClick('aboutUs')" rel="noopener noreferrer">About Us</a>
+                    </li>
+                    <li>
+                        <a accesskey=”o” (click)="buttonClick('contactUs')" rel="noopener noreferrer">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li>
+                        <a accesskey=”p” routerLink='/latest-projects/all' rel="noopener noreferrer">All Projects</a>
+                    </li>
+                    <li>
+                        <a  accesskey=”i” (click)="buttonClick('latestProjects')" rel="noopener noreferrer">Latest Projects</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col footer-logo">
+                <img src="/./assets/images/Logo/EstateVilleVerticalLogoWhite.svg" alt="estate vill">
+                <div>
+                    <a rel="noopener noreferrer" [href]="social.link" target="_blank" *ngFor="let social of socials"><i
+                            class="fa fa-{{social.icon}}" aria-hidden="true"></i></a>
+                </div>
+
+            </div>
+            <div class="col">
+                <ul>
+                    <li *ngFor="let category of categoriesList.slice(0,2)">
+                        <a  rel="noopener noreferrer" (click)="goToFilterationPage(category.id)" accesskey=”m”>{{category.name}}</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li *ngFor="let category of categoriesList.slice(2,4)">
+                        <a accesskey=”w” rel="noopener noreferrer" (click)="goToFilterationPage(category.id)">{{category.name}}</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="row  row-cols-sm-1 row-cols-md-2" *ngIf="allBranches">
+            <div *ngFor="let branch of allBranches" class="col  text-center contactUs-branches ">
+                <ng-container>
+                    <li class="list-unstyled" *ngIf="branch.map"> <span> <i class="fa fa-map" aria-hidden="true"></i>
+                        </span> <a *ngIf="!arabicMode" [href]="branch.map" target="_blank" rel="noopener noreferrer" accesskey=”r”>{{branch.address}}</a>
+                        <a [href]="branch.map" target="_blank" *ngIf="arabicMode" rel="noopener noreferrer" accesskey=”f”>{{branch.arabicAddress}}</a>
+                    </li>
+                    <li class="list-unstyled" *ngIf="branch.email"> <span> <i class="fa fa-envelope"
+                                aria-hidden="true"></i> </span> <a href="mailto:{{branch.email}}" rel="noopener noreferrer" accesskey=”b”>{{branch.email}}</a>
+                    </li>
+                    <li class="list-unstyled" *ngIf="branch.mobile"> <span> <i class="fa fa-phone"
+                                aria-hidden="true"></i> </span> <a href="tel:{{branch.mobile}}" rel="noopener noreferrer" accesskey=”c”>{{branch.mobile}}</a>
+                    </li>
+                    <li class="list-unstyled" *ngIf="branch.phone"> <span> <i class="fa fa-phone"
+                                aria-hidden="true"></i> </span> <a href="tel:{{branch.phone}}" rel="noopener noreferrer" accesskey=”d”>{{branch.phone}}</a>
+                    </li>
+
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+
+</footer>

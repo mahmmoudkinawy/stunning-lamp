@@ -1,0 +1,15 @@
+@import "../../../../styles.scss";
+.navbar{
+    background-image: url(/./assets/images/Header-Footer/Header.webp);
+    background-size: cover;
+    background-color: $background ;
+}
+.navbar-brand{
+    width: 15%;
+    img{
+        width: 100%;
+    }
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 4.5rem;
+}

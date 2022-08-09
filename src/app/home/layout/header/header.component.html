@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container-fluid" dir="ltr">
+        <a class="navbar-brand" routerLink="/">
+            <img src="/./assets/images/Logo/EstateVilleLogoOriginal.svg" alt="estate ville" class="pageSpeed-width-hight">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a accesskey=”a” class="nav-link " aria-current="page" (click)="buttonClick('aboutUs')" rel="noopener noreferrer">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a accesskey=”l” class="nav-link" (click)="buttonClick('latestProjects')" rel="noopener noreferrer">Latest Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a accesskey=”c” class="nav-link" (click)="buttonClick('contactUs')" rel="noopener noreferrer">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a accesskey=”n” class="nav-link conveythis-no-translate" (click)="goToFilterationPage()" rel="noopener noreferrer">NAC</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>

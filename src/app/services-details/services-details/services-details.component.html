@@ -1,0 +1,24 @@
+<section id="latest-projects" class="py-5" *ngIf="serviceById">
+    <div class="container service-details m-auto">
+        <div class="row p-5">
+            <div class="col-md-3 img-service-details">
+                <img [src]="getImgPath(serviceById.image)" alt="Properties image">
+            </div>
+
+            <div class="col-md-9 p-4 projects-desc">
+                <div class=" text-desc">
+                    <h3 class="conveythis-no-translate">
+                        <ng-container *ngIf="!arabicMode">
+                            {{serviceById.name}}
+                        </ng-container>
+                        <ng-container *ngIf="arabicMode">
+                            {{serviceById.arabicName}}
+                        </ng-container>
+                    </h3>
+
+                    <p [innerHTML]="serviceById.description" class="py-1">{{serviceById.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 104" width="156" height="104">
+	<title>BedroomIcon</title>
+	<defs>
+		<image  width="156" height="104" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJwAAABoCAMAAAAzZWlwAAAAAXNSR0IB2cksfwAAAFdQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////jkYO6AAAAB10Uk5TABBfr7//z28gf+8w32Cf8MDggNBAsHCQoFA/T4/Lq2BGAAACxklEQVR4nO2ba3ejIBBANTXR+NZoNO7+/9/ZMqDiC9cJBLtn7pfWE8EryDBg4jhq3MuXdzXBzfODnWvvqd1DI2YC7x29KDapxvDRbonRZuOk2HYb3LJcN8VgV6LcXN6nWRkhb05NkDy4XYUpXULR2tVtNfKEK3iYotCpuW6hCQm26SroU4PtxsjZRZrj5RpWrtXvMwFaID5eDm7qpd9nSsaucrwYyBnuVXGV4+EgxN3TQXLciLh+RK7RJBd0/n2VbnX67v6snuxPzy61yFWqxMmbV++mimk5vmiWSxRqjGRSNtrJGL60ylU7btOg4+5mM0MuokNuP68LpajT7p597R88DXIvOHiU60A4kDsWjrNm/Wxu3k89GuSginrz1Hr68c6sDI9vP2VpCCU7oRJsxvwFMiFFDnmgZh1VTOXKHbmc5EjOopyGUEJyJGdYLup+ADmRIcK8n66nmgz2cTwcQebnbZ8dSzV7vGa/W89YpwQXVZpolNC7K1c6ynT3E8T+Vr7wsq3GCO9ram5q20twW44PaROzyDfyRIO00o7dbEEiLUnq5M1tZDTuq+7t/q66tbbMOG4p7OTNWOFWmNnDPEJQz3tWbLC2xrdt/gXReMNSs+FuNpUk+Po9Fi1Vncqt3yoW+50Qe4tT9CmHL21hbEbwr/2xMOJmQ1eC5/aK2Qbw2LENDhcaDvWmwhyFCCewD/KwbTOjEb3ZSEPjNATQr45zm4S8s1DwQQqP3IniCAdG6fNDu+ZHEYskiMC2XRY8Rzmz7wYxVL9E7lzzA0OSw71nNwnJYSE5LCSHheSwSHJpdzb8Ue6kkByWXyCn/5uF7/IY5U6dbJLcIUgOC8lhITksJIdFkrvZzi0XULL5FiSHpXSG1K7gf+wlnsXcIpEH7uzrjZ+mXLcgOZIjOZIjOZJTyKU8w7Mst7SQf8ViWW5pQXL/m9w3srqpvibyxFsAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+</svg>

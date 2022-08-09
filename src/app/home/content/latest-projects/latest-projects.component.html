@@ -1,0 +1,66 @@
+<section class="LatestProjects py-5" id="latestProjects">
+    <div class="container">
+        <p class="text-center my-5 headOfSerction">Our Properties</p>
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 m-auto" *ngIf="properties">
+            <div class="col" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1100"
+                *ngFor="let prop of properties.slice(0,8)">
+                <div class="card conveythis-no-translate">
+                    <h5 class="card-title" *ngIf="!arabicMode">{{prop.title | slice: 0:60}}</h5>
+                    <h5 class="card-title" *ngIf="arabicMode">{{prop.arabicTitle | slice: 0:60}}</h5>
+
+                    <img [src]="getImgPath(prop.coverImage)" class="card-img-box" alt="Properties image">
+                    <div class="card-body">
+
+                        <a data-bs-toggle="modal" class="btn btn-primary" accesskey=”j”
+                            [routerLink]="['/latest-projects/project-details', prop.id]"
+                            rel="noopener noreferrer">Open</a>
+                        <p class="card-text text-center" *ngIf="!arabicMode">{{prop.description | slice:0:80}}</p>
+                        <p class="card-text text-center" *ngIf="arabicMode">{{prop.arabicDescription | slice:0:80}}</p>
+                        <p class="card-text text-center font-weight-bold">{{prop.user.firstName}} {{prop.user.lastName}}
+                        </p>
+                        <p class="card-ref text-center">{{prop.reference}}</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center allBTN">
+            <div class="col-md-4">
+                <a accesskey=”k” routerLink='/latest-projects/all' class="btn btn-primary" rel="noopener noreferrer">View All
+                    Properties</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <!-- <ng-template class="modal fade" #template id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" dir="ltr">
+        <div class="modal-dialog">
+            <div class="modal-content" *ngIf="propertyId" dir="ltr">
+                <div class="modal-footer">
+                    <button
+                        [routerLink]="['/latest-projects/project-details', propertyId.id]" type="button"
+                        class=" btn btn-outline-danger btn-underline" (click)="seeMore()">Property Details</button>
+                </div>
+                <div class="modal-header">
+                    <button type="button" class="btn-close" (click)="closeSubDialog()" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ngb-carousel #carousel [interval]="2000">
+                        <ng-template ngbSlide *ngFor="let img of propertyId.imagesList">
+                            <div class="picsum-img-wrapper">
+                                <div class="img-block">
+                                    <img [src]="getImgPath(img)" alt="Properties image" class="d-block w-100 h-100">
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+            </div>
+        </div>
+    </ng-template> -->
+</section>

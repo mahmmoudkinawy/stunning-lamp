@@ -1,0 +1,24 @@
+<section class="py-5" *ngIf="allService">
+    <div class="container-fluid">
+        <div class="row text-center OurServices m-auto">
+            <h6 class="my-5 headOfSerction">Our Services</h6>
+            <div class="col-md-3" *ngFor="let serv of allService">
+                <a [routerLink]="['/servicesDetails/services-details', serv.id]" rel="noopener noreferrer" accesskey=”e”>
+                    <div class="img-box">
+                        <img data-aos="zoom-in" data-aos-duration="1300" [src]="getImgPath(serv.image)"
+                            alt="Property Management" class="page-speed-logo-white">
+                    </div>
+                    <h5 class="conveythis-no-translate">
+                        <ng-container *ngIf="!arabicMode">
+                            {{serv.name}}
+                        </ng-container>
+                        <ng-container *ngIf="arabicMode">
+                            {{serv.arabicName}}
+                        </ng-container>
+                    </h5>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>

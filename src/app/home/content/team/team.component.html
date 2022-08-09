@@ -1,0 +1,16 @@
+<section class="team-section" *ngIf="allTeam">
+    <div class="container">
+        <p class="text-center mb-5 headOfSerction" *ngIf="allTeam.length">Our Team</p>
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 m-auto">
+            <div class="col mb-4" *ngFor="let team of allTeam">
+                <div class="card">
+                    <img [src]="getImgPath(team.image)" class="card-img-top" alt="team image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{team.name}}</h5>
+                        <p class="card-text text-center pt-0">{{team.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

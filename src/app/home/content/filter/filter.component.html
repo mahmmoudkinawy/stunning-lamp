@@ -1,0 +1,159 @@
+<section class="filter-section">
+    <div class="
+      container-fluid
+      d-flex
+      h-100
+      justify-content-center
+      align-items-center
+    ">
+        <div class="row" dir="auto">
+            <h5 class="find-your-home" *ngIf="slogon">{{slogon.title}}</h5>
+            <!-- <h5 class="find-your-home-ar" *ngIf="arabicMode">find your home</h5> -->
+            <form class="mt-5" [formGroup]="form">
+                <div class="col-md-10 m-auto filteration-row">
+                    <!----------------------------------- search By  ------------------------------>
+                    <div class="row searchBy m-auto">
+                        <div class="col-md-6">
+                            <mat-form-field appearance="fill" class="w-100" style="text-align: -webkit-auto;">
+                                <mat-label for="Area" class="input-color">Search by Name..</mat-label>
+                                <input matInput type="text" placeholder="Search by Name.." [(ngModel)]="title"
+                                    formControlName="Title">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                            <mat-form-field appearance="fill" class="w-100" style="text-align: -webkit-auto;">
+                                <mat-label for="area" class="input-color">Area</mat-label>
+                                <mat-select [(ngModel)]="area" style="text-align: -webkit-auto;" formControlName="area">
+                                    <mat-option>None</mat-option>
+                                    <mat-option *ngFor="let area of areas" [value]="area.id">{{area.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                            <mat-form-field appearance="fill" class="w-100" style="text-align: -webkit-auto;">
+                                <mat-label for="bedrooms" class="input-color">Bedrooms</mat-label>
+                                <mat-select [(ngModel)]="BedRooms" style="text-align: -webkit-auto;"
+                                    formControlName="Bedroom">
+                                    <!-- <mat-option selected disabled>Choose</mat-option> -->
+
+                                    <mat-option value="Studio">Studio</mat-option>
+                                    <mat-option *ngFor="let bedroom of beds" [value]="bedroom">{{bedroom}}</mat-option>
+                                    <mat-option value="7+">7+</mat-option>
+                                    <mat-option value="N/A">N/A</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-2">
+                            <mat-form-field appearance="fill" class="w-100" style="text-align: -webkit-auto;">
+                                <mat-label for="bathrooms" class="input-color">Bathrooms</mat-label>
+                                <mat-select [(ngModel)]="bathroom" style="text-align: -webkit-auto;"
+                                    formControlName="Bathroom">
+                                    <!-- <mat-option selected disabled>Choose</mat-option> -->
+
+                                    <mat-option value="None">None</mat-option>
+                                    <mat-option *ngFor="let bedroom of beds" [value]="bedroom">{{bedroom}}</mat-option>
+                                    <mat-option value="7+">7+</mat-option>
+                                    <mat-option value="N/A">N/A</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!----------------------------------- filteration ------------------------------>
+                    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-6 row-filter m-auto"
+                        style="margin-top: 1% !important; margin-bottom: 1% !important">
+                        <div class="col-md-3">
+                            <mat-form-field appearance="fill" style="text-align: -webkit-auto;">
+                                <mat-label class="input-color">Categories</mat-label>
+                                <mat-select [(ngModel)]="category" formControlName="Category">
+
+                                    <mat-option *ngFor="let category of categories" [value]="category.id">
+                                        {{ category.name }} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                            <mat-form-field appearance="fill" style="text-align: -webkit-auto;">
+                                <mat-label class="input-color">Types</mat-label>
+                                <mat-select [(ngModel)]="typeid" class="conveythis-no-translate"
+                                    formControlName="TypeId">
+
+                                    <mat-option *ngFor="let type of types" [value]="type.id">
+                                        <ng-container *ngIf="!arabicMode">
+                                            {{ type.name }}
+                                        </ng-container>
+                                        <ng-container *ngIf="arabicMode">
+                                            {{ type.arabicName }}
+                                        </ng-container>
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <!-- <div class="col">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Types</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let food of foods" [value]="food.value">
+                                    {{ food.viewValue }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div> -->
+                        <div class="col Price">
+                            <div class="input-group">
+                                <span id="inputGroup-sizing-default"></span>
+                                <input type="number" class="form-control input-color" placeholder="Min. Price"
+                                    [(ngModel)]="MinPrices" formControlName="Minprice" />
+                            </div>
+                        </div>
+                        <div class="col Price">
+                            <div class="input-group">
+                                <span id="inputGroup-sizing-default"></span>
+                                <input type="number" class="form-control input-color" placeholder="Max. Price"
+                                    [(ngModel)]="MaxPrices" formControlName="Maxprice" />
+                            </div>
+                        </div>
+                        <div class="col faa-search">
+                            <i class="fa fa-search" aria-hidden="true" style="float: left;"
+                                (click)="goToFilterationPage()"></i>
+                            <i class="fa fa-solid fa-rotate-left search-icon" style="float: right; " aria-hidden="true"
+                                (click)="resetSearch()"></i>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <!----------------------------------- buttons ------------------------------>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-7 col-md-6 m-auto">
+                            <!-- <div class="row buy-rent">
+                                <div class="col-6 col-sm-6 col-xs-6 text-center" *ngFor="let type of categoryTypes">
+                                    <button type="button" class="btn btn-primary" (click)="catchCategoryType(type)"> For
+                                        {{categoryTypeMapping[type]}}</button>
+                                </div>
+                            </div> -->
+                            <div class="wrapper buy-rent">
+                                <input type="radio" name="select" id="option-1"
+                                    (click)="catchCategoryType(categoryTypes[0])">
+                                <input type="radio" name="select" id="option-2"
+                                    (click)="catchCategoryType(categoryTypes[1])">
+                                <label for="option-1" class="option option-1">
+                                    <div class="dot"></div>
+                                    <span>For {{categoryTypeMapping[categoryTypes[0]]}}</span>
+                                </label>
+                                <label for="option-2" class="option option-2">
+                                    <div class="dot"></div>
+                                    <span>For {{categoryTypeMapping[categoryTypes[1]]}}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- <div class="row social-icons">
+                    <div class="col-md-8">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </div>
+                </div> -->
+        </div>
+    </div>
+</section>

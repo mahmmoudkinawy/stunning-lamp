@@ -1,0 +1,294 @@
+<div id="latest-projects" class="pb-5">
+  <form class="mt-5" [formGroup]="form">
+    <div class="container m-auto py-3 mt-3 container-style" dir="ltr">
+      <div class="row" id="search">
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100 input-color" dir="auto" style="text-align: -webkit-auto;">
+            <mat-label for="Area" class="input-color">Search by Name..</mat-label>
+            <input matInput type="text" placeholder="Search by Name.." [(ngModel)]="title" formControlName="Title"
+            class="input-color">
+          </mat-form-field>
+        </div>
+        <div class="col-md-2 input-colum">
+          <mat-form-field appearance="fill" class="w-100 input-color" dir="auto" style="text-align: -webkit-auto;">
+            <mat-label for="category" class="input-color">Category</mat-label>
+            <mat-select [(ngModel)]="CategorySelected" formControlName="Category">
+              <!-- <mat-option selected disabled>Choose</mat-option> -->
+              <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-1 input-colum">
+          <mat-form-field appearance="fill" class="w-100 input-color" dir="auto" style="text-align: -webkit-auto;">
+            <mat-label for="typeid" class="input-color">Type</mat-label>
+            <mat-select [(ngModel)]="typeid" class="conveythis-no-translate" formControlName="TypeId">
+              <!-- <mat-option selected disabled>Choose</mat-option> -->
+
+              <mat-option *ngFor="let type of allType" [value]="type.id">
+                <ng-container *ngIf="!arabicMode">
+                  {{type.name}}
+                </ng-container>
+                <ng-container *ngIf="arabicMode">
+                  {{type.arabicName}}
+                </ng-container>
+              </mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-1 input-colum">
+          <mat-form-field appearance="fill" class="w-100 input-color" dir="auto" style="text-align: -webkit-auto;">
+            <mat-label for="Area" class="input-color">Area</mat-label>
+            <!-- <input matInput id="Area" type="text" title="title" placeholder="Area" autocomplete="Area" [(ngModel)]="area"> -->
+            <mat-select [(ngModel)]="area" formControlName="area">
+              <!-- <mat-option selected disabled>Choose</mat-option> -->
+
+              <mat-option *ngFor="let area of areas" [value]="area.id">{{area.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-1 input-colum">
+          <mat-form-field appearance="fill" class="w-100 input-color" dir="auto" style="text-align: -webkit-auto;">
+            <mat-label for="MinPrice" class="input-color">MinPrice</mat-label>
+            <input matInput id="MinPrice" type="number" title="title" placeholder="MinPrice" autocomplete="MinPrice"
+              [(ngModel)]="MinPrices" formControlName="Minprice" class="input-color">
+          </mat-form-field>
+        </div>
+        <div class="col-md-1 input-colum">
+          <mat-form-field appearance="fill" class="w-100 input-color" dir="auto" style="text-align: -webkit-auto;">
+            <mat-label for="MaxPrice" class="input-color">MaxPrice</mat-label>
+            <input matInput id="MaxPrice" type="number" title="title" placeholder="MaxPrice" autocomplete="MaxPrice"
+              [(ngModel)]="MaxPrices" formControlName="Maxprice" class="input-color">
+          </mat-form-field>
+        </div>
+        <div class="col-md-1 input-colum">
+          <mat-form-field appearance="fill" class="w-100 input-color" dir="auto" style="text-align: -webkit-auto;">
+            <mat-label for="bathrooms" class="input-color">Baths</mat-label>
+            <mat-select [(ngModel)]="bathroom" formControlName="Bathroom" class="input-color">
+              <!-- <mat-option selected disabled>Choose</mat-option> -->
+
+              <mat-option value="None">None</mat-option>
+              <mat-option *ngFor="let bedroom of beds" [value]="bedroom">{{bedroom}}</mat-option>
+              <mat-option value="7+">7+</mat-option>
+              <mat-option value="N/A">N/A</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-1 input-colum">
+          <mat-form-field appearance="fill" class="w-100 input-color" dir="auto" style="text-align: -webkit-auto;">
+            <mat-label for="bedrooms" class="input-color">Beds</mat-label>
+            <mat-select [(ngModel)]="beadroom" formControlName="Bedroom" class="input-color">
+              <!-- <mat-option selected disabled>Choose</mat-option> -->
+
+              <mat-option value="Studio">Studio</mat-option>
+              <mat-option *ngFor="let bedroom of beds" [value]="bedroom">{{bedroom}}</mat-option>
+              <mat-option value="7+">7+</mat-option>
+              <mat-option value="N/A">N/A</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-1 px-2" style="display: contents;">
+          <i class="fa fa-search search-icon icon-res-left" style="float: left;" aria-hidden="true"
+            (click)="applyFilter()"></i>
+          <i class="fa fa-solid fa-rotate-left search-icon icon-res-right" style="float: right; " aria-hidden="true"
+            (click)="resetSearch()"></i>
+          <div style="clear: both;"></div>
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-xl-4 col-lg-5 col-md-4 m-auto">
+          <!-- <div class="row buy-rent">
+            <div class="col-6 col-sm-6 col-xs-6 text-center" *ngFor="let type of categoryTypes">
+              <button type="button" class="btn btn-primary" (click)="catchCategoryType(type)"
+                [ngClass]="{'selected': typeSelected}">For {{categoryTypeMapping[type]}}</button>
+            </div>
+          </div> -->
+          <div class="wrapper buy-rent">
+            <input type="radio" name="select" id="option-1" (click)="catchCategoryType(categoryTypes[0])">
+            <input type="radio" name="select" id="option-2" (click)="catchCategoryType(categoryTypes[1])">
+            <label for="option-1" class="option option-1">
+              <div class="dot"></div>
+              <span>For {{categoryTypeMapping[categoryTypes[0]]}}</span>
+            </label>
+            <label for="option-2" class="option option-2">
+              <div class="dot"></div>
+              <span>For {{categoryTypeMapping[categoryTypes[1]]}}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!------------------------- main box of the data(image and description) ------------------------------>
+  <div class="container m-auto mt-4 mb-4 main-box py-4 allProperties-overflow" *ngIf="allProperties">
+
+    <div class="row pb-5" dir="auto">
+      <!------------------------------ card flib -------------------------------------------->
+      <div class="col-md-3 col-sm-4 mt-2 flip-card" *ngFor="let pro of allProperties">
+        <div class="card flip-card-inner">
+          <div class="flip-card-front conveythis-no-translate">
+            <!-- <h5 class="card-title">Palm Hills 6 October New Extension El Markazy Axis</h5> -->
+            <h5 class="card-title" *ngIf="!arabicMode">{{ pro.title | slice: 0:25 }}...</h5>
+            <h5 class="card-title" *ngIf="arabicMode">{{ pro.arabicTitle | slice: 0:25 }}...</h5>
+
+
+            <img [src]="getIamgeName(pro.coverImage)" class="card-img-top card-radius" alt="Properties image" />
+            <div class="card-body">
+              <!-- | slice:0:500 -->
+              <p class="card-text text-center color-p-w" *ngIf="!arabicMode">
+                {{ pro.description | slice: 0:80 }}...
+              </p>
+              <p class="card-text text-center color-p-w" *ngIf="arabicMode">
+                {{ pro.arabicDescription | slice: 0:80 }}...
+              </p>
+              <p class="card-text text-center color-p-w">{{pro.user.firstName}} {{pro.user.lastName}}
+              </p>
+              <p class="card-ref text-center mb-5">{{pro.reference}}</p>
+
+              <!-- <p class="card-text text-center" style="color: #fff;">Some quick example text to build on the card title and make up the bulk of the card's content. </p> -->
+            </div>
+          </div>
+          <div class="flip-card-back pt-5">
+            <!-- <div class="row mt-5" *ngFor="let price of pro.pricesList">
+              <p class="price-card">
+                {{ price.amount }} <span>{{ price.pricetype }}</span>
+              </p>
+            </div> -->
+
+            <div class="row mt-5 pt-5" *ngIf="pro.categoryType == 1 && pro.categoryType == 2">
+              <p class="price-card" *ngIf="pro.amount || pro.pricetype">
+                {{ pro.amount | currency:'EGP':'':'3.0' }} {{pro.pricetype}}
+              </p>
+            </div>
+            <div class="row mt-5" *ngIf="pro.categoryType == 1">
+              <p class="price-card" *ngIf="pro.amount || pro.pricetype || pro.amount_1 || 
+                          pro.pricetype_1 || pro.amount_2 || pro.pricetype_2">
+                {{ pro.amount | currency:'EGP':'':'3.0' }} {{pro.pricetype}}
+                <br>
+                {{ pro.amount_1 | currency:'EGP':'':'3.0' }} {{pro.pricetype_1}}
+                <br>
+                {{ pro.amount_2 | currency:'EGP':'':'3.0' }} {{pro.pricetype_2}}
+              </p>
+            </div>
+
+            <div class="
+                  row
+                  py-3
+                  main-desc-img
+                  justify-content-center
+                  align-items-baseline
+                " *ngIf="pro.area">
+              <div class="col-6 desc-img-box px-1">
+                <img src="/assets/images/ProjectsDetails/SizeIcon.webp" alt="Properties image" class="w-100" />
+              </div>
+              <div class="col-8 px-3 text-align-span">
+                <!-- <span >3,2999 sqft / 300 sqft</span> -->
+                <span class="propTxt ">{{ pro.area }}</span>
+              </div>
+            </div>
+
+            <div class="row mb-3 pt-5 mx-2 des-img-details justify-content-center">
+              <div class="col-4  box-details p-0" *ngIf="pro.bedrooms">
+                <div class="row gx-0 ">
+                  <div class="col-sm ">
+                    <div class="detils-img img-res-col img-box-rem">
+                      <img src="/assets/images/ProjectsDetails/BedroomIcon.webp" alt="Properties image"
+                        class="w-100 h-100" />
+                    </div>
+                  </div>
+                  <div class="col-sm  details-text">
+                    <p class="propTxt proresf">{{ pro.bedrooms }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 box-details p-0" *ngIf="pro.bathrooms">
+                <div class="row  gx-0 ">
+                  <div class="col-sm">
+                    <div class="detils-img img-res-col img-box-rem">
+                      <img src="/assets/images/ProjectsDetails/BathroomIcon.webp" alt="Properties image"
+                        class="w-100 h-100" />
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <p class="propTxt proresf">{{ pro.bathrooms }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-4 box-details p-0 ">
+                <div class="row  gx-0" *ngIf="pro.type">
+                  <div class="col-sm ">
+                    <div class="detils-img img-res-col">
+                      <img src="/assets/images/ProjectsDetails/TypeIcon.webp" alt="Properties image"
+                        class="w-100 h-100" />
+                    </div>
+                  </div>
+                  <div class="col-sm p-0  conveythis-no-translate">
+                    <p class="propTxt prores proresf" *ngIf="!arabicMode">{{ pro.type.name }}</p>
+                    <p class="propTxt prores proresf" *ngIf="arabicMode">{{ pro.type.arabicName }}</p>
+
+                  </div>
+               
+                </div>
+              </div>
+            </div>
+            <div class="row  justify-content-center-content">
+              <ng-container *ngIf="pro.user">
+                <div class="col-6 my-2 btn-ipad-responsive btn-padding px-1">
+                  <a class="btn w-100 py-0 btn-contact btn-icon btn-bg-green"
+                    href="https://wa.me/{{pro.user.whatsPhone}}" rel="noopener noreferrer">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <div class="col-6 my-2 btn-ipad-responsive btn-padding px-1">
+                  <button class="btn w-100 py-0 btn-contact btn-icon btn-base-bg-c">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </ng-container>
+              <div class="col-6 my-2 btn-ipad-responsive px-1 btn-bg-tr">
+                <button (click)="copyPropertyURL(pro.id)" class="btn w-100 btn-contact btn-copy">
+                  Copy URL
+                  <span><i class="fa fa-files-o" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="col-7 my-2 btn-ipad-responsive btn-padding px-1">
+                <button class="btn py-0 btn-contact see-more-card"
+                  [routerLink]="['/latest-projects/project-details', pro.id]">
+                  See More
+                </button>
+              </div>
+            
+
+             
+            </div>
+            <!-- <share-buttons 
+            [theme]="'circles-dark'" [include]="['linkedin','twitter','whatsapp','facebook']" 
+            [size]="-4" [url]="postUrl" [image]="getIamgeName(pro.coverImage)" >
+        </share-buttons> -->
+          </div>
+        </div>
+      </div>
+      <!--------------------------------- end card flib ------------------------------------->
+    </div>
+    <div class="row justify-content-center" *ngIf="!allProperties.length">
+      <div class=" col-md-6">
+        <p class="text-center date-p">No
+          Data available</p>
+      </div>
+    </div>
+
+    <div>
+      <mat-paginator [length]="totalRecords" [pageSize]="PageSize" [pageSizeOptions]="pageSizeOptions"
+        (page)="handleOnPageChange($event)" aria-label="Select page">
+      </mat-paginator>
+    </div>
+
+
+  </div>
+
+</div>
